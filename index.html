@@ -27,6 +27,7 @@
       <li><a href="#skills" data-nav>Skills</a></li>
       <li><a href="#projects" data-nav>Projects</a></li>
       <li><a href="#education" data-nav>Education</a></li>
+      <li><a href="#certificates" data-nav>Certificates</a></li>
     </ul>
     <a href="#hero" class="nav__logo">ASAD<span> </span>AMEER</a>
     <div class="nav__right">
@@ -356,8 +357,60 @@
       </div>
     </section>
 
+    <!-- CERTIFICATES -->
+    <section class="section" id="certificates">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">— 05 Certificates</p>
+        <h2 class="section__title">Verified <em>Credentials</em></h2>
+      </div>
+
+      <div class="certs">
+        <article class="cert-card" data-reveal>
+          <button class="cert-card__media" type="button" data-cert-src="assets/cert-prompt-engineering.png" data-cert-title="Prompt Engineering &amp; Claude Skills — 2026 Edition" aria-label="View certificate: Prompt Engineering & Claude Skills">
+            <img src="assets/cert-prompt-engineering.png" alt="Prompt Engineering & Claude Skills certificate" loading="lazy" />
+            <span class="cert-card__zoom" aria-hidden="true">View</span>
+          </button>
+          <div class="cert-card__body">
+            <span class="cert-card__year">01 July 2026</span>
+            <h3>Prompt Engineering &amp; Claude Skills — 2026 Edition</h3>
+            <p>Issued by <strong>Morphe Labs</strong> · Instructor: Sameer Khan</p>
+            <div class="cert-card__meta">
+              <span class="cert-badge">Verified</span>
+              <span class="cert-badge cert-badge--ghost">Certificate of Completion</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cert-card" data-reveal>
+          <button class="cert-card__media" type="button" data-cert-src="assets/cert-ai-prompting.png" data-cert-title="AI Prompting Essentials — Beginner Edition 2026" aria-label="View certificate: AI Prompting Essentials">
+            <img src="assets/cert-ai-prompting.png" alt="AI Prompting Essentials certificate" loading="lazy" />
+            <span class="cert-card__zoom" aria-hidden="true">View</span>
+          </button>
+          <div class="cert-card__body">
+            <span class="cert-card__year">02 July 2026</span>
+            <h3>AI Prompting Essentials — Beginner Edition 2026</h3>
+            <p>Issued by <strong>Morphe Labs</strong> · Instructor: Sameer Khan</p>
+            <div class="cert-card__meta">
+              <span class="cert-badge">Verified</span>
+              <span class="cert-badge cert-badge--ghost">Certificate of Completion</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CERTIFICATE LIGHTBOX -->
+    <div class="cert-lightbox" id="certLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="certLightboxTitle">
+      <button class="cert-lightbox__close" type="button" aria-label="Close">&times;</button>
+      <figure class="cert-lightbox__inner">
+        <img id="certLightboxImg" src="" alt="" />
+        <figcaption id="certLightboxTitle"></figcaption>
+      </figure>
+    </div>
+
     <!-- CONTACT -->
     <section class="section" id="contact">
+
       <div class="section__head" data-reveal>
         <p class="eyebrow">— 05 Contact</p>
         <h2 class="section__title">Let's <em>Build</em> Together</h2>

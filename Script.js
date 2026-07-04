@@ -265,3 +265,33 @@
   });
 
 })();
+/* ===== Certificate lightbox ===== */
+(function(){
+  const lightbox = document.getElementById('certLightbox');
+  if (!lightbox) return;
+  const imgEl = document.getElementById('certLightboxImg');
+  const captionEl = document.getElementById('certLightboxTitle');
+  const closeBtn = lightbox.querySelector('.cert-lightbox__close');
+
+  function open(src, title){
+    imgEl.src = src;
+    imgEl.alt = title || '';
+    captionEl.textContent = title || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    setTimeout(() => { imgEl.src = ''; }, 350);
+  }
+
+  document.querySelectorAll('[data-cert-src]').forEach(btn => {
+    btn.addEventListener('click', () => open(btn.dataset.certSrc, btn.dataset.certTitle));
+  });
+  closeBtn.addEventListener('click', close);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close(); });
+})();
