@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asad Ameer — Full Stack Developer</title>
+<meta name="description" content="Asad Ameer — Full Stack Developer specializing in MERN & MEAN Stack development. BS Computer Science student at COMSATS University Islamabad, Vehari Campus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- OUTER FRAME (like reference) -->
+<div class="frame">
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <ul class="nav__links nav__links--left" id="navLinks">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#projects" data-nav>Projects</a></li>
+      <li><a href="#education" data-nav>Education</a></li>
+    </ul>
+    <a href="#hero" class="nav__logo">ASAD<span> </span>AMEER</a>
+    <div class="nav__right">
+      <a href="#contact" class="nav__icon" aria-label="Contact">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a href="resume/Asad_Ameer_Resume.pdf" download class="nav__cta">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></svg>
+        <span>Résumé</span>
+      </a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__copy">
+      <h1 class="hero__title" data-reveal>
+        <span class="line line--italic">Crafting Digital</span>
+        <span class="line line--display">EXPERIENCES</span>
+        <span class="line line--italic">Building Modern</span>
+        <span class="line line--display line--accent">SOLUTIONS<span class="dot">.</span></span>
+      </h1>
+      <div class="hero__divider">
+        <span class="hero__divider-line"></span>
+        <span class="hero__star">✦</span>
+        <span class="hero__divider-line"></span>
+      </div>
+      <p class="hero__intro" data-reveal>
+        Full Stack Developer crafting responsive interfaces,
+        scalable backends &amp; intelligent applications.
+      </p>
+
+      <div class="hero__actions" data-reveal>
+        <a href="#projects" class="btn btn--primary magnetic">
+          <span>Explore Work</span>
+          <span class="btn__arrow">→</span>
+        </a>
+      </div>
+
+      <div class="hero__trust" data-reveal>
+        <div class="hero__trust-avatars">
+          <span class="avatar avatar--1">R</span>
+          <span class="avatar avatar--2">L</span>
+          <span class="avatar avatar--3">M</span>
+        </div>
+        <div class="hero__trust-text">
+          <strong>MERN &amp; MEAN Stack</strong>
+          <span>Developer · CS Student</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual" data-reveal>
+      <div class="hero__arch">
+        <img src="assets/hero.jpg" alt="Asad Ameer portrait">
+      </div>
+      <div class="hero__badge">
+        <svg viewBox="0 0 200 200" width="130" height="130">
+          <defs>
+            <path id="circlePath" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+          </defs>
+          <text font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="currentColor">
+            <textPath href="#circlePath">FULL STACK DEVELOPER · MERN &amp; MEAN · </textPath>
+          </text>
+        </svg>
+        <span class="hero__badge-star">✦</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURE STRIP -->
+  <section class="features">
+    <div class="feature">
+      <div class="feature__icon">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3 4 7l4 4M16 3l4 4-4 4M14 4l-4 16"/></svg>
+      </div>
+      <h4>Clean Code</h4>
+      <p>Readable, maintainable<br>&amp; well-structured</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19"/></svg>
+      </div>
+      <h4>Full Stack</h4>
+      <p>MERN &amp; MEAN stack<br>end-to-end delivery</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+      </div>
+      <h4>Scalable Systems</h4>
+      <p>APIs, databases &amp;<br>architecture that grow</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>
+      </div>
+      <h4>AI-Focused</h4>
+      <p>ML &amp; NLP applied<br>to real problems</p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">— 01 About</p>
+        <h2 class="section__title"><em>Profile</em> &amp; Story</h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__mark" data-reveal>
+          <div class="mark mark--photo">
+            <img src="assets/hero.jpg" alt="Asad Ameer portrait">
+          </div>
+          <ul class="about__facts">
+            <li><span>Location</span><strong>Mailsi, Pakistan</strong></li>
+            <li><span>Degree</span><strong>BS Computer Science</strong></li>
+            <li><span>Institute</span><strong>COMSATS Vehari</strong></li>
+            <li><span>Graduating</span><strong>2027 (Expected)</strong></li>
+          </ul>
+        </div>
+
+        <div class="about__copy" data-reveal>
+          <p>
+            Passionate Full Stack Developer and BS Computer Science student at
+            COMSATS University Islamabad Vehari Campus, with practical experience
+            designing modern web applications using MERN and MEAN Stack technologies.
+          </p>
+          <p>
+            Skilled in building responsive interfaces, scalable backend systems,
+            and managing SQL and NoSQL databases. Strong foundation in Software
+            Engineering, OOP, Databases, AI, ML, Networking, and Cybersecurity.
+          </p>
+          <p>
+            Committed to building efficient, user-focused solutions while
+            continuously learning emerging technologies and industry best practices.
+          </p>
+          <div class="about__langs">
+            <span class="eyebrow">— Languages</span>
+            <div class="chips">
+              <span class="chip">English</span>
+              <span class="chip">Urdu</span>
+              <span class="chip">Punjabi</span>
+              <span class="chip">Saraiki</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">— 02 Skills</p>
+        <h2 class="section__title">Technical <em>Expertise</em></h2>
+      </div>
+
+      <div class="skills__grid">
+        <div class="skill-card" data-reveal>
+          <h3>Frontend</h3>
+          <div class="chips">
+            <span class="chip"><i class="fab fa-react"></i>React.js</span>
+            <span class="chip"><i class="fab fa-angular"></i>Angular</span>
+            <span class="chip"><i class="fab fa-js"></i>JavaScript</span>
+            <span class="chip"><i class="fab fa-html5"></i>HTML5</span>
+            <span class="chip"><i class="fab fa-css3-alt"></i>CSS3</span>
+            <span class="chip"><i class="fab fa-bootstrap"></i>Bootstrap</span>
+            <span class="chip"><i class="fas fa-wind"></i>Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="skill-card" data-reveal>
+          <h3>Backend</h3>
+          <div class="chips">
+            <span class="chip"><i class="fab fa-node-js"></i>Node.js</span>
+            <span class="chip"><i class="fas fa-server"></i>Express.js</span>
+            <span class="chip"><i class="fab fa-laravel"></i>Laravel</span>
+            <span class="chip"><i class="fab fa-php"></i>PHP</span>
+            <span class="chip"><i class="fab fa-python"></i>Python</span>
+            <span class="chip"><i class="fab fa-java"></i>Java</span>
+            <span class="chip"><i class="fas fa-code"> </i>C++</span>
+          </div>
+        </div>
+        <div class="skill-card" data-reveal>
+          <h3>Databases</h3>
+          <div class="chips">
+            <span class="chip"><i class="fas fa-database"></i>MySQL</span>
+            <span class="chip"><i class="fas fa-database"></i>MongoDB</span>
+            <span class="chip"><i class="fas fa-database"></i>SQL</span>
+            <span class="chip"><i class="fas fa-database"></i>NoSQL</span>
+            <span class="chip"><i class="fas fa-project-diagram"></i>DB Design</span>
+          </div>
+        </div>
+        <div class="skill-card" data-reveal>
+          <h3>Core Skills</h3>
+          <div class="chips">
+            <span class="chip"><i class="fas fa-layer-group"></i>MERN Stack</span>
+            <span class="chip"><i class="fas fa-layer-group"></i>MEAN Stack</span>
+            <span class="chip"><i class="fas fa-cube"></i>OOP</span>
+            <span class="chip"><i class="fas fa-cogs"></i>Software Engineering</span>
+            <span class="chip"><i class="fas fa-project-diagram"></i>System Design</span>
+          </div>
+        </div>
+        <div class="skill-card" data-reveal>
+          <h3>Tools</h3>
+          <div class="chips">
+            <span class="chip"><i class="fab fa-git-alt"></i>Git</span>
+            <span class="chip"><i class="fab fa-github"></i>GitHub</span>
+            <span class="chip"><i class="fas fa-paper-plane"></i>Postman</span>
+            <span class="chip"><i class="fas fa-code"></i>VS Code</span>
+            <span class="chip"><i class="fas fa-database"></i>MySQL Workbench</span>
+            <span class="chip"><i class="fas fa-network-wired"></i>Cisco Packet Tracer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS (card layout like reference) -->
+    <section class="section" id="projects">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">— 03 Projects</p>
+        <h2 class="section__title">Featured <em>Work</em></h2>
+      </div>
+
+      <div class="featured">
+        <div class="featured__copy" data-reveal>
+          <p class="eyebrow">Featured Build</p>
+          <h3 class="featured__title"><em>Real Products,</em><br>Real Impact</h3>
+          <p class="featured__desc">
+            End-to-end projects blending clean interfaces, secure APIs,
+            and intelligent automation.
+          </p>
+          <a href="#contact" class="btn btn--ghost magnetic">
+            <span>Get in touch</span>
+            <span class="btn__arrow">→</span>
+          </a>
+        </div>
+
+        <div class="featured__carousel">
+          <button class="featured__nav featured__nav--prev" aria-label="Previous">‹</button>
+          <button class="featured__nav featured__nav--next" aria-label="Next">›</button>
+
+          <div class="featured__slides">
+            <article class="project-card" data-reveal>
+              <div class="project-card__thumb">
+                <span class="project-card__index">01</span>
+              </div>
+              <div class="project-card__body">
+                <h4>GharFix</h4>
+                <p class="project-card__tag">On-Demand Home Services Platform</p>
+                <p class="project-card__desc">
+                  Multi-role service marketplace connecting customers, workers, and
+                  administrators through dedicated dashboards. React frontend + Laravel
+                  APIs, RBAC, secure auth, booking management, MySQL.
+                </p>
+                <div class="chips">
+                  <span class="chip"><i class="fab fa-react"></i>React.js</span>
+                  <span class="chip"><i class="fab fa-laravel"></i>Laravel</span>
+                  <span class="chip"><i class="fab fa-php"></i>PHP</span>
+                  <span class="chip"><i class="fas fa-database"></i>MySQL</span>
+                  <span class="chip"><i class="fas fa-user-shield"></i>RBAC</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-reveal>
+              <div class="project-card__thumb">
+                <span class="project-card__index">02</span>
+              </div>
+              <div class="project-card__body">
+                <h4>AI Resume Analyzer</h4>
+                <p class="project-card__tag">Intelligent Resume Screening Platform</p>
+                <p class="project-card__desc">
+                  ML + NLP platform that extracts candidate info, analyzes skills,
+                  matches resumes with job requirements and generates evaluation
+                  scores to streamline recruitment.
+                </p>
+                <div class="chips">
+                  <span class="chip"><i class="fab fa-python"></i>Python</span>
+                  <span class="chip"><i class="fas fa-robot"></i>Machine Learning</span>
+                  <span class="chip"><i class="fas fa-brain"></i>NLP</span>
+                  <span class="chip"><i class="fas fa-file-alt"></i>Resume Screening</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">— 04 Education</p>
+        <h2 class="section__title"><em>Academic</em> Journey</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__year">2027 · Expected</span>
+            <h3>BS Computer Science</h3>
+            <p>COMSATS University Islamabad, Vehari Campus</p>
+          </div>
+        </div>
+        <div class="timeline__item" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__year">2023</span>
+            <h3>F.Sc. (Pre-Medical)</h3>
+            <p>BISE, Multan</p>
+          </div>
+        </div>
+        <div class="timeline__item" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__year">2021</span>
+            <h3>Matriculation</h3>
+            <p>BISE, Multan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">— 05 Contact</p>
+        <h2 class="section__title">Let's <em>Build</em> Together</h2>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__info" data-reveal>
+          <p class="contact__lead">
+            Open to Full Stack, MERN/MEAN, and Junior AI/ML-adjacent roles.
+          </p>
+          <a class="contact__row" href="mailto:asadameer656@gmail.com">
+            <span class="contact__label">Email</span>
+            <span class="contact__value">asadameer656@gmail.com</span>
+          </a>
+          <a class="contact__row" href="tel:+923008792151">
+            <span class="contact__label">Phone</span>
+            <span class="contact__value">+92 300 8792151</span>
+          </a>
+          <a class="contact__row" href="https://linkedin.com/in/maher-asad-564b52366" target="_blank" rel="noopener">
+            <span class="contact__label">LinkedIn</span>
+            <span class="contact__value">/in/maher-asad-564b52366</span>
+          </a>
+          <div class="contact__row contact__row--static">
+            <span class="contact__label">Location</span>
+            <span class="contact__value">Mailsi, Pakistan</span>
+          </div>
+        </div>
+
+        <div class="chat-sim" data-reveal aria-label="Sample client conversation">
+          <div class="chat-sim__header">
+            <span class="chat-sim__dot"></span>
+            <span class="chat-sim__title">Live conversation preview</span>
+          </div>
+          <div class="chat-sim__thread">
+            <div class="chat-msg chat-msg--client">
+              <span class="chat-msg__who">Client</span>
+              <p>Hey Asad, I need a MERN dashboard with auth and Stripe billing. Can you take it on?</p>
+            </div>
+            <div class="chat-msg chat-msg--asad">
+              <span class="chat-msg__who">Asad</span>
+              <p>Absolutely. I'll scope the data model, wire Stripe subscriptions, and ship a clean admin UI.</p>
+            </div>
+            <div class="chat-msg chat-msg--client">
+              <span class="chat-msg__who">Client</span>
+              <p>How soon can we see a working prototype?</p>
+            </div>
+            <div class="chat-msg chat-msg--asad">
+              <span class="chat-msg__who">Asad</span>
+              <p>A clickable prototype in 5 days, MVP in 3 weeks — with weekly demos so you steer the direction.</p>
+            </div>
+            <div class="chat-msg chat-msg--client">
+              <span class="chat-msg__who">Client</span>
+              <p>Perfect. Let's start.</p>
+            </div>
+            <div class="chat-msg chat-msg--asad chat-msg--typing">
+              <span class="chat-msg__who">Asad</span>
+              <p><span class="dot"></span><span class="dot"></span><span class="dot"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM SERVICES STRIP (mirrors reference) -->
+  <section class="services">
+    <div class="service">
+      <div class="service__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h13l2 3h3v7h-2M3 7v10h2M3 7l2-3h9l2 3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+      </div>
+      <div>
+        <strong>Fast Delivery</strong>
+        <span>Rapid, iterative shipping</span>
+      </div>
+    </div>
+    <div class="service">
+      <div class="service__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"/></svg>
+      </div>
+      <div>
+        <strong>Secure Code</strong>
+        <span>Auth, RBAC &amp; best practices</span>
+      </div>
+    </div>
+    <div class="service">
+      <div class="service__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/></svg>
+      </div>
+      <div>
+        <strong>Iterative Updates</strong>
+        <span>Continuous improvements</span>
+      </div>
+    </div>
+    <div class="service">
+      <div class="service__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h5v5H4zM15 4h5v5h-5zM4 15h5v5H4zM15 15h5v5h-5z"/></svg>
+      </div>
+      <div>
+        <strong>24/7 Support</strong>
+        <span>Reachable when it counts</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+      <div class="footer__inner">
+      <a href="#hero" class="nav__logo">ASAD<span> </span>AMEER</a>
+      <div class="footer__social">
+        <a href="https://linkedin.com/in/maher-asad-564b52366" target="_blank" rel="noopener" aria-label="LinkedIn" class="social social--linkedin">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="https://wa.me/923008792151" target="_blank" rel="noopener" aria-label="WhatsApp" class="social social--whatsapp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:asadameer656@gmail.com" aria-label="Email" class="social social--email">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.8 6.2L19.8 6H4.2zM20 8.1l-7.4 5.9a1 1 0 0 1-1.2 0L4 8.1V18h16V8.1z"/></svg>
+        </a>
+      </div>
+      <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+    </div>
+    <p class="footer__copy">© <span id="year"></span> Asad Ameer. Crafted with care.</p>
+  </footer>
+
+</div>
+
+<script src="Script.js"></script>
+</body>
+</html>
