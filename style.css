@@ -580,10 +580,15 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .nav__cta span{display:none}
   .nav__cta{padding:10px 12px}
 
-  .hero{grid-template-columns:1fr;padding:12px 22px 40px;gap:30px;text-align:left}
-  .hero__visual{order:-1}
-  .hero__arch{max-width:340px;min-width:0;width:100%}
-  .hero__badge{right:0;top:0}
+  .hero{grid-template-columns:1fr;padding:12px 22px 40px;gap:30px;text-align:center}
+  .hero__copy{max-width:100%;margin:0 auto}
+  .hero__title{max-width:100%;word-break:break-word}
+  .hero__visual{order:-1;display:flex;justify-content:center}
+  .hero__arch{max-width:320px;min-width:0;width:100%;margin:0 auto}
+  .hero__badge{right:auto;left:50%;transform:translateX(-50%);top:10px}
+  .hero__title .line--display{font-size:42px}
+  .hero__title .line--italic{font-size:22px}
+  .hero__intro{max-width:100%;font-size:14px;margin:0 auto}
 
   .features{margin:0 16px 30px;grid-template-columns:repeat(2,1fr);gap:22px 12px}
   .feature{border-right:none;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:16px}
