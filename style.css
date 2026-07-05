@@ -610,8 +610,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 }
 
 @media (max-width:520px){
-  .hero__title .line--display{font-size:56px}
-  .hero__title .line--italic{font-size:26px}
+  .hero__title .line--display{font-size:28px;letter-spacing:-.02em;white-space:nowrap}
+  .hero__title .line--italic{font-size:18px}
+  .hero__title{line-height:1}
   .section__title{font-size:36px}
   .services,.features{grid-template-columns:1fr}
   .service,.feature{border-right:none !important;border-bottom:1px solid var(--line)}
