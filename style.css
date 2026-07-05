@@ -56,6 +56,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 /* ==================== FRAME ==================== */
 .frame{
   position:relative;
+  width:min(100%,1240px);
   max-width:1240px;
   margin:26px auto;
   background:var(--frame);
@@ -581,7 +582,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
   .hero{grid-template-columns:1fr;padding:12px 22px 40px;gap:30px;text-align:left}
   .hero__visual{order:-1}
-  .hero__arch{max-width:340px}
+  .hero__arch{max-width:340px;min-width:0;width:100%}
   .hero__badge{right:0;top:0}
 
   .features{margin:0 16px 30px;grid-template-columns:repeat(2,1fr);gap:22px 12px}
