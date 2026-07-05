@@ -610,9 +610,18 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 }
 
 @media (max-width:520px){
-  .hero__title .line--display{font-size:28px;letter-spacing:-.02em;white-space:nowrap}
+  .hero__title{line-height:1;max-width:100%;overflow:hidden;text-align:center}
+  .hero__title .line--display{
+    font-size:30px;
+    letter-spacing:-.06em;
+    white-space:nowrap;
+    display:block;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .hero__title .line--accent{font-size:30px}
   .hero__title .line--italic{font-size:18px}
-  .hero__title{line-height:1}
+  .hero__intro{font-size:14px}
   .section__title{font-size:36px}
   .services,.features{grid-template-columns:1fr}
   .service,.feature{border-right:none !important;border-bottom:1px solid var(--line)}
