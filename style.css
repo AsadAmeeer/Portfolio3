@@ -580,12 +580,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .nav__cta span{display:none}
   .nav__cta{padding:10px 12px}
 
-  .hero{grid-template-columns:1fr;padding:12px 22px 40px;gap:30px;text-align:center}
-  .hero__copy{max-width:100%;margin:0 auto}
+  .hero{grid-template-columns:1fr;padding:12px 18px 40px;gap:30px;text-align:left}
+  .hero__copy{max-width:100%;margin:0}
   .hero__title{max-width:100%;word-break:break-word}
   .hero__visual{order:-1;display:flex;justify-content:center}
   .hero__arch{max-width:320px;min-width:0;width:100%;margin:0 auto}
-  .hero__badge{right:auto;left:50%;transform:translateX(-50%);top:10px}
+  .hero__badge{right:12px;top:10px;left:auto;transform:none}
   .hero__title .line--display{font-size:42px}
   .hero__title .line--italic{font-size:22px}
   .hero__intro{max-width:100%;font-size:14px;margin:0 auto}
