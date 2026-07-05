@@ -3,6 +3,7 @@
    =========================================================== */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 
 :root{
@@ -612,17 +613,17 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 @media (max-width:520px){
   .hero__title{line-height:1;max-width:100%;overflow:hidden;text-align:center}
   .hero__title .line--display{
-    font-size:30px;
+    font-size:24px;
     letter-spacing:-.06em;
     white-space:nowrap;
     display:block;
     overflow:hidden;
     text-overflow:ellipsis;
   }
-  .hero__title .line--accent{font-size:30px}
-  .hero__title .line--italic{font-size:18px}
+  .hero__title .line--accent{font-size:24px}
+  .hero__title .line--italic{font-size:16px}
   .hero__intro{font-size:14px}
-  .section__title{font-size:36px}
+  .section__title{font-size:32px}
   .services,.features{grid-template-columns:1fr}
   .service,.feature{border-right:none !important;border-bottom:1px solid var(--line)}
   .feature{border-bottom-color:rgba(255,255,255,.14)}
