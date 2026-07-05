@@ -631,12 +631,15 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
   /* mobile-only hero divider centering */
   .hero__divider{
-    width:100%;
+    width:min(320px,90%);
+    max-width:320px;
+    margin:18px auto;
     justify-content:center;
   }
   .hero__divider-line{
-    flex:0 1 38%;
-    max-width:220px;
+    flex:1 1 0;
+    max-width:none;
+    margin:0 12px;
   }
   .hero__star{
     display:inline-grid;place-items:center;
