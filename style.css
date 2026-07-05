@@ -628,6 +628,22 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .service,.feature{border-right:none !important;border-bottom:1px solid var(--line)}
   .feature{border-bottom-color:rgba(255,255,255,.14)}
   .feature:last-child,.service:last-child{border-bottom:none}
+
+  /* mobile-only hero divider centering */
+  .hero__divider{
+    width:100%;
+    justify-content:center;
+  }
+  .hero__divider-line{
+    flex:0 1 38%;
+    max-width:220px;
+  }
+  .hero__star{
+    display:inline-grid;place-items:center;
+    width:18px;height:18px;border-radius:50%;
+    background:rgba(255,255,255,0.02);
+    color:var(--accent-2);font-size:14px;
+  }
 }
 
 /* ==================== CHAT SIMULATION ==================== */
