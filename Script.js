@@ -295,3 +295,207 @@
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close(); });
 })();
+
+/* ===== Dedicated Aesthetic Backdrop Animation (Behind Photo Only) ===== */
+(function initPhotoCanvas() {
+  const canvas = document.getElementById('photoCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const visualFx = canvas.parentElement;
+  if (!ctx || !visualFx) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let animId = null;
+  let time = 0;
+
+  function resize() {
+    const rect = visualFx.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.scale(dpr, dpr);
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  // Floating gold dust embers around photo
+  const embers = Array.from({ length: 22 }, () => ({
+    x: 0.15 + Math.random() * 0.7,
+    y: Math.random(),
+    r: 1 + Math.random() * 2,
+    vx: (Math.random() - 0.5) * 0.0003,
+    vy: -0.0004 - Math.random() * 0.0006,
+    alpha: 0.2 + Math.random() * 0.6,
+    glow: Math.random() * 6 + 3,
+    pulseSpeed: 0.02 + Math.random() * 0.03,
+  }));
+
+  // Aesthetic Circuit traces framing the arch
+  function getPhotoCircuits(w, h) {
+    const cx = w * 0.5;
+    const cy = h * 0.5;
+    const archHalfW = w * 0.32;
+    const archTopY = h * 0.15;
+    const paths = [];
+
+    // Left-side branching lines
+    for (let i = 0; i < 5; i++) {
+      const y = archTopY + (i + 1) * (h * 0.12);
+      const startX = cx - archHalfW - 10;
+      const midX = startX - 35 - (i % 3) * 15;
+      const endX = midX - 45 - (i % 2) * 25;
+      const endY = y + (i % 2 === 0 ? 25 : -25);
+      paths.push({
+        pts: [
+          { x: startX, y: y },
+          { x: midX, y: y },
+          { x: midX - 20, y: endY },
+          { x: endX, y: endY }
+        ],
+        nodeR: 2 + (i % 2),
+        pulseProgress: (i * 0.2) % 1,
+        pulseSpeed: 0.003 + (i % 3) * 0.001
+      });
+    }
+
+    // Right-side branching lines
+    for (let i = 0; i < 5; i++) {
+      const y = archTopY + (i + 1) * (h * 0.12);
+      const startX = cx + archHalfW + 10;
+      const midX = startX + 35 + (i % 3) * 15;
+      const endX = midX + 45 + (i % 2) * 25;
+      const endY = y + (i % 2 === 0 ? -25 : 25);
+      paths.push({
+        pts: [
+          { x: startX, y: y },
+          { x: midX, y: y },
+          { x: midX + 20, y: endY },
+          { x: endX, y: endY }
+        ],
+        nodeR: 2 + (i % 2),
+        pulseProgress: ((i + 2) * 0.18) % 1,
+        pulseSpeed: 0.003 + (i % 3) * 0.001
+      });
+    }
+
+    // Top crown aura circuits
+    paths.push({
+      pts: [
+        { x: cx - 40, y: archTopY - 15 },
+        { x: cx - 20, y: archTopY - 45 },
+        { x: cx + 20, y: archTopY - 45 },
+        { x: cx + 40, y: archTopY - 15 }
+      ],
+      nodeR: 2.5,
+      pulseProgress: 0.4,
+      pulseSpeed: 0.0025
+    });
+
+    return paths;
+  }
+
+  let photoCircuits = getPhotoCircuits(width, height);
+  window.addEventListener('resize', () => { photoCircuits = getPhotoCircuits(width, height); });
+
+  function drawAestheticCircuits(t) {
+    ctx.save();
+
+    photoCircuits.forEach((cp) => {
+      // Circuit track
+      ctx.beginPath();
+      cp.pts.forEach((pt, idx) => {
+        if (idx === 0) ctx.moveTo(pt.x, pt.y);
+        else ctx.lineTo(pt.x, pt.y);
+      });
+      ctx.strokeStyle = 'rgba(217, 119, 6, 0.28)';
+      ctx.lineWidth = 1.3;
+      ctx.stroke();
+
+      // Terminal nodes
+      const startPt = cp.pts[0];
+      const endPt = cp.pts[cp.pts.length - 1];
+      [startPt, endPt].forEach((pt) => {
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, cp.nodeR, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(251, 191, 36, 0.65)';
+        ctx.shadowColor = 'rgba(251, 191, 36, 0.8)';
+        ctx.shadowBlur = 6;
+        ctx.fill();
+      });
+
+      // Subtle pulse
+      if (!reduceMotion) {
+        cp.pulseProgress = (cp.pulseProgress + cp.pulseSpeed) % 1;
+        const totalSegments = cp.pts.length - 1;
+        const segIndex = Math.min(Math.floor(cp.pulseProgress * totalSegments), totalSegments - 1);
+        const segT = (cp.pulseProgress * totalSegments) - segIndex;
+        const p1 = cp.pts[segIndex];
+        const p2 = cp.pts[segIndex + 1];
+        const px = p1.x + (p2.x - p1.x) * segT;
+        const py = p1.y + (p2.y - p1.y) * segT;
+
+        ctx.beginPath();
+        ctx.arc(px, py, cp.nodeR + 0.8, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFF';
+        ctx.shadowColor = '#FBBF24';
+        ctx.shadowBlur = 10;
+        ctx.fill();
+      }
+    });
+
+    ctx.restore();
+  }
+
+  function drawPhotoEmbers(t) {
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+
+    embers.forEach((p) => {
+      if (!reduceMotion) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.y < -0.05) { p.y = 1.05; p.x = 0.15 + Math.random() * 0.7; }
+        if (p.x < 0.05) p.x = 0.95;
+        if (p.x > 0.95) p.x = 0.05;
+      }
+
+      const px = p.x * width;
+      const py = p.y * height;
+      const alpha = Math.max(0.1, p.alpha + Math.sin(t * 3 + p.glow) * 0.25);
+
+      ctx.beginPath();
+      ctx.arc(px, py, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(253, 230, 138, ${alpha})`;
+      ctx.shadowColor = 'rgba(245, 158, 11, 0.75)';
+      ctx.shadowBlur = p.glow;
+      ctx.fill();
+    });
+
+    ctx.restore();
+  }
+
+  let isVisible = true;
+  const observer = new IntersectionObserver((entries) => {
+    isVisible = entries[0].isIntersecting;
+  }, { threshold: 0.1 });
+  observer.observe(visualFx);
+
+  function loop() {
+    if (isVisible) {
+      time += 0.016;
+      ctx.clearRect(0, 0, width, height);
+
+      drawAestheticCircuits(time);
+      drawPhotoEmbers(time);
+    }
+    animId = requestAnimationFrame(loop);
+  }
+
+  loop();
+})();

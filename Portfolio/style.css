@@ -269,12 +269,37 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 }
 .feature:last-child{border-right:none}
 .feature__icon{
-  width:52px;height:52px;margin:0 auto 12px;
+  width:54px;height:54px;margin:0 auto 12px;
   display:grid;place-items:center;
-  background:rgba(255,255,255,0.04);
   border-radius:50%;
-  color:var(--accent-2);
-  box-shadow:inset 0 2px 6px rgba(0,0,0,0.18);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
+}
+.feature:hover .feature__icon{
+  transform:translateY(-3px) scale(1.08);
+}
+.feature__icon--code{
+  background:rgba(16, 185, 129, 0.16);
+  color:#10B981;
+  border:1px solid rgba(16, 185, 129, 0.35);
+  box-shadow:0 6px 20px rgba(16, 185, 129, 0.25);
+}
+.feature__icon--stack{
+  background:rgba(97, 218, 251, 0.16);
+  color:#61DAFB;
+  border:1px solid rgba(97, 218, 251, 0.35);
+  box-shadow:0 6px 20px rgba(97, 218, 251, 0.25);
+}
+.feature__icon--system{
+  background:rgba(59, 130, 246, 0.16);
+  color:#3B82F6;
+  border:1px solid rgba(59, 130, 246, 0.35);
+  box-shadow:0 6px 20px rgba(59, 130, 246, 0.25);
+}
+.feature__icon--ai{
+  background:rgba(236, 72, 153, 0.16);
+  color:#F43F5E;
+  border:1px solid rgba(236, 72, 153, 0.35);
+  box-shadow:0 6px 20px rgba(244, 63, 94, 0.25);
 }
 .feature h4{
   font-family:var(--f-display);font-weight:600;font-size:17px;margin-bottom:6px;
