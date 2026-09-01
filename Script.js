@@ -62,7 +62,7 @@
      Cursor-follow ambient glow (desktop only)
   ---------------------------------------------------------- */
   const cursorGlow = document.getElementById('cursorGlow');
-  if (!reduceMotion && matchMedia('(pointer:fine)').matches) {
+  if (cursorGlow && !reduceMotion && matchMedia('(pointer:fine)').matches) {
     window.addEventListener('mousemove', (e) => {
       cursorGlow.style.opacity = '1';
       cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
