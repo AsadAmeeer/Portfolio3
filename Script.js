@@ -294,4 +294,166 @@
   closeBtn.addEventListener('click', close);
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close(); });
+
+  /* ----------------------------------------------------------
+     Live Chat Simulation (Interactive & Animated)
+  ---------------------------------------------------------- */
+  const initChatSimulation = () => {
+    const thread = document.getElementById('chatThread');
+    const replayBtn = document.getElementById('chatReplayBtn');
+    const statusText = document.getElementById('chatStatusText');
+    const statusDot = document.getElementById('chatStatusDot');
+    const chatContainer = document.querySelector('.chat-sim');
+    if (!thread) return;
+
+    const conversation = [
+      {
+        sender: 'client',
+        who: 'Client',
+        text: 'Hey Asad, I need a MERN dashboard with auth and Stripe billing. Can you take it on?',
+        typingDelay: 900
+      },
+      {
+        sender: 'asad',
+        who: 'Asad',
+        text: "Absolutely. I'll scope the data model, wire Stripe subscriptions, and ship a clean admin UI.",
+        typingDelay: 1300
+      },
+      {
+        sender: 'client',
+        who: 'Client',
+        text: 'How soon can we see a working prototype?',
+        typingDelay: 850
+      },
+      {
+        sender: 'asad',
+        who: 'Asad',
+        text: 'A clickable prototype in 5 days, MVP in 3 weeks — with weekly demos so you steer the direction.',
+        typingDelay: 1400
+      },
+      {
+        sender: 'client',
+        who: 'Client',
+        text: "Perfect. Let's start. 🚀",
+        typingDelay: 800
+      },
+      {
+        sender: 'asad',
+        who: 'Asad',
+        text: "Awesome! Setting up the repository and milestone tracker now.",
+        typingDelay: 1200
+      }
+    ];
+
+    let currentStep = 0;
+    let isRunning = false;
+    let timeouts = [];
+    let hasPlayedOnce = false;
+
+    const clearAllTimeouts = () => {
+      timeouts.forEach(t => clearTimeout(t));
+      timeouts = [];
+    };
+
+    const scrollToBottom = () => {
+      thread.scrollTo({
+        top: thread.scrollHeight,
+        behavior: 'smooth'
+      });
+    };
+
+    const showTypingIndicator = (sender, who) => {
+      const typingEl = document.createElement('div');
+      typingEl.className = `chat-msg chat-msg--${sender} chat-msg--typing`;
+      typingEl.id = 'activeTypingIndicator';
+      typingEl.innerHTML = `
+        <span class="chat-msg__who">${who} is typing…</span>
+        <p><span class="dot"></span><span class="dot"></span><span class="dot"></span></p>
+      `;
+      thread.appendChild(typingEl);
+      scrollToBottom();
+    };
+
+    const removeTypingIndicator = () => {
+      const el = document.getElementById('activeTypingIndicator');
+      if (el) el.remove();
+    };
+
+    const addMessage = (msg) => {
+      const msgEl = document.createElement('div');
+      msgEl.className = `chat-msg chat-msg--${msg.sender}`;
+      msgEl.innerHTML = `
+        <span class="chat-msg__who">${msg.who}</span>
+        <p>${msg.text}</p>
+      `;
+      thread.appendChild(msgEl);
+      scrollToBottom();
+    };
+
+    const runNextStep = () => {
+      if (currentStep >= conversation.length) {
+        isRunning = false;
+        if (statusText) statusText.textContent = 'Project Started';
+        if (statusDot) {
+          statusDot.style.background = '#22c55e';
+          statusDot.style.boxShadow = '0 0 0 4px rgba(34,197,94,0.2)';
+        }
+        if (replayBtn) replayBtn.classList.add('is-highlight');
+        return;
+      }
+
+      const msg = conversation[currentStep];
+      if (statusText) statusText.textContent = `${msg.who} is typing…`;
+      if (statusDot) {
+        statusDot.style.background = '#e5b96f';
+        statusDot.style.boxShadow = '0 0 0 4px rgba(229,185,111,0.25)';
+      }
+      showTypingIndicator(msg.sender, msg.who);
+
+      const typingTimer = setTimeout(() => {
+        removeTypingIndicator();
+        addMessage(msg);
+        currentStep++;
+
+        const pauseBetween = (msg.sender === 'client') ? 700 : 1000;
+        const nextTimer = setTimeout(runNextStep, pauseBetween);
+        timeouts.push(nextTimer);
+      }, msg.typingDelay);
+
+      timeouts.push(typingTimer);
+    };
+
+    const startSimulation = () => {
+      clearAllTimeouts();
+      thread.innerHTML = '';
+      currentStep = 0;
+      isRunning = true;
+      if (replayBtn) replayBtn.classList.remove('is-highlight');
+      if (statusText) statusText.textContent = 'Live discussion';
+      if (statusDot) {
+        statusDot.style.background = '#e5b96f';
+        statusDot.style.boxShadow = '0 0 0 4px rgba(229,185,111,0.25)';
+      }
+
+      const initialTimer = setTimeout(runNextStep, 400);
+      timeouts.push(initialTimer);
+    };
+
+    replayBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      startSimulation();
+    });
+
+    if (chatContainer) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !hasPlayedOnce) {
+          hasPlayedOnce = true;
+          startSimulation();
+        }
+      }, { threshold: 0.25 });
+      observer.observe(chatContainer);
+    }
+  };
+
+  initChatSimulation();
 })();

@@ -296,7 +296,7 @@
                 </div>
               </button>
               <div class="exp-cert-card__badge-bar">
-                <span class="exp-badge exp-badge--gold">✦ Primary Experience Credential</span>
+                <span class="exp-badge exp-badge--gold">Primary Experience Credential</span>
                 <span class="exp-badge exp-badge--outline">Verified Record</span>
               </div>
             </div>
@@ -319,7 +319,11 @@
 
               <div class="exp-cert-card__highlights">
                 <div class="exp-highlight">
-                  <div class="exp-highlight__icon">✦</div>
+                  <div class="exp-highlight__icon">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
                   <div>
                     <strong>Full Stack Architecture</strong>
                     <p>Building responsive frontends and secure backend APIs using modern MERN &amp; MEAN stack
@@ -327,14 +331,22 @@
                   </div>
                 </div>
                 <div class="exp-highlight">
-                  <div class="exp-highlight__icon">✦</div>
+                  <div class="exp-highlight__icon">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
                   <div>
                     <strong>AI &amp; Prompt Engineering</strong>
                     <p>Mastering prompt optimization, LLM capabilities, and automated AI application logic.</p>
                   </div>
                 </div>
                 <div class="exp-highlight">
-                  <div class="exp-highlight__icon">✦</div>
+                  <div class="exp-highlight__icon">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
                   <div>
                     <strong>Production Readiness</strong>
                     <p>Implementing clean code practices, system design principles, and user-centric web features.</p>
@@ -560,10 +572,21 @@
 
           <div class="chat-sim" data-reveal aria-label="Sample client conversation">
             <div class="chat-sim__header">
-              <span class="chat-sim__dot"></span>
-              <span class="chat-sim__title">Live conversation preview</span>
+              <div class="chat-sim__header-left">
+                <span class="chat-sim__dot" id="chatStatusDot"></span>
+                <span class="chat-sim__title">Live conversation preview</span>
+                <span class="chat-sim__status" id="chatStatusText">Live preview</span>
+              </div>
+              <button class="chat-sim__replay" id="chatReplayBtn" type="button" aria-label="Replay conversation">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                  <path d="M3 3v5h5" />
+                </svg>
+                <span>Replay</span>
+              </button>
             </div>
-            <div class="chat-sim__thread">
+            <div class="chat-sim__thread" id="chatThread" role="log" aria-live="polite">
+              <!-- Initial markup for SSR / progressive fallback -->
               <div class="chat-msg chat-msg--client">
                 <span class="chat-msg__who">Client</span>
                 <p>Hey Asad, I need a MERN dashboard with auth and Stripe billing. Can you take it on?</p>
@@ -571,22 +594,6 @@
               <div class="chat-msg chat-msg--asad">
                 <span class="chat-msg__who">Asad</span>
                 <p>Absolutely. I'll scope the data model, wire Stripe subscriptions, and ship a clean admin UI.</p>
-              </div>
-              <div class="chat-msg chat-msg--client">
-                <span class="chat-msg__who">Client</span>
-                <p>How soon can we see a working prototype?</p>
-              </div>
-              <div class="chat-msg chat-msg--asad">
-                <span class="chat-msg__who">Asad</span>
-                <p>A clickable prototype in 5 days, MVP in 3 weeks — with weekly demos so you steer the direction.</p>
-              </div>
-              <div class="chat-msg chat-msg--client">
-                <span class="chat-msg__who">Client</span>
-                <p>Perfect. Let's start.</p>
-              </div>
-              <div class="chat-msg chat-msg--asad chat-msg--typing">
-                <span class="chat-msg__who">Asad</span>
-                <p><span class="dot"></span><span class="dot"></span><span class="dot"></span></p>
               </div>
             </div>
           </div>
